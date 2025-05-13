@@ -3,67 +3,69 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  body {
+}
+
+body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     background-color: #f4f4f4;
     color: #333;
-  }
-  
-  /* Header/navigation styles */
-  header {
+}
+
+/* Header/navigation styles */
+header {
     background: rgb(55, 55, 245);
     color: #fff;
     padding: 10px 20px;
-  }
-  
-  nav {
+}
+
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
-  }
-  
-  .logo {
+}
+
+.logo {
     font-size: 1.5em;
     font-weight: bold;
-  }
-  
-  .nav-links {
+}
+
+.nav-links {
     list-style: none;
     display: flex;
-  }
-  
-  .nav-links li {
+}
+
+.nav-links li {
     margin-left: 20px;
-  }
-  
-  .nav-links a {
+}
+
+.nav-links a {
     color: #fff;
     text-decoration: none;
-  }
-  
-  .menu-toggle {
+}
+
+.menu-toggle {
     display: none;
     font-size: 1.5em;
     cursor: pointer;
-  }
-  
-  /* Main content styles */
-  main {
+}
+
+/* Main content styles */
+main {
     padding: 20px;
-  }
-  
-  .hero {
+}
+
+/* Hero section */
+.hero {
     background: #007bff;
     color: #fff;
     padding: 40px 20px;
     text-align: center;
-  }
-  
-  .btn {
+}
+
+/* Button style */
+.btn {
     display: inline-block;
     margin-top: 20px;
     padding: 10px 20px;
@@ -71,76 +73,128 @@
     color: #007bff;
     text-decoration: none;
     border-radius: 4px;
-  }
-  
-  .about-section, .posts-section {
+}
+
+/* About and posts sections - max width for readability */
+.about-section,
+.posts-section {
     max-width: 800px;
     margin: 0 auto;
-  }
-  
-  .posts-list {
+    padding: 10px; /* ensure some padding on sides */
+}
+
+/* Responsive list of posts - grid like, flexible */
+.posts-list {
     display: flex;
-    flex-direction: column;
-  }
-  
-  .post-summary {
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Each post card */
+.post-summary {
     background: #fff;
-    margin: 10px 0;
+    flex: 1 1 calc(33% - 20px);
+    min-width: 250px; /* prevent too small cards */
     padding: 15px;
     border-radius: 5px;
-  }
-  
-  .post-summary h2 {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.post-summary h2 {
     margin-bottom: 10px;
-  }
-  
-  .post-summary a {
+}
+
+.post-summary a {
     color: #007bff;
     text-decoration: none;
-  }
-  
-  .post-full {
+}
+
+/* Full post style for article content */
+.post-full {
     background: #fff;
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
     border-radius: 5px;
-  }
-  
-  .post-date {
+}
+
+.post-date {
     font-size: 0.9em;
     color: #666;
-  }
-  
-  footer {
+}
+
+/* Footer styles */
+footer {
     background: rgb(7, 6, 58);
     color: #fff;
     text-align: center;
     padding: 10px 20px;
     margin-top: 20px;
-  }
-  
-  /* Responsive styles */
-  @media (max-width: 768px) {
-    .nav-links {
-      position: absolute;
-      top: 60px;
-      right: 0;
-      background: #a9a7a7;
-      flex-direction: column;
-      width: 200px;
-      display: none;
-    }
-  
-    .nav-links.show {
-      display: flex;
-    }
-  
-    .menu-toggle {
-      display: block;
-    }
-  }
+}
 
-h1, h2 {
-    color: rgb(7, 7, 130);
-  }
+/* Responsive styles */
+@media (max-width: 1024px) {
+    /* For tablets and small desktops, adjust post card widths */
+    .post-summary {
+        flex: 1 1 calc(50% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    /* Navigation menu becomes a toggle menu */
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #a9a7a7;
+        flex-direction: column;
+        width: 200px;
+        display: none;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Make posts stack vertically on small screens */
+    .posts-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Post cards full width on small screens */
+    .post-summary {
+        flex: 1 1 100%;
+        max-width: 95%;
+    }
+
+    /* Reduce font sizes to better fit small screens */
+    body {
+        font-size: 14px;
+    }
+
+    /* Adjust headings for smaller screens */
+    h1, h2 {
+        font-size: 1.2em;
+    }
+}
+
+/* Further small device tuning for very small screens */
+@media (max-width: 480px) {
+    body {
+        font-size: 13px;
+    }
+
+    /* Smaller headings */
+    h1 {
+        font-size: 1em;
+    }
+    h2 {
+        font-size: 1em;
+    }
+}
